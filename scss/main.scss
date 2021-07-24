@@ -1,0 +1,261 @@
+// VARIABLES
+
+$color-primary: #9356DC;
+$color-secondary: #FF79DA;
+$color-tertiary: #99E2D0;
+
+$font-title: Shrikhand;
+$font-text: Roboto;
+
+$padding-side: 5vw;
+
+$shadows: 0 0.5vw 1.5vw 0.1vw #e9e8e8;
+
+@mixin full-width {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+@mixin steps-icon-properties {
+    color: lighten(#000, 47%);
+    font-size: 1.3em;
+    padding: 0 0 0 8vw;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $font-text, sans-serif;
+}
+
+// HEADER
+
+.header {
+    height: 30.7vw;
+    text-align: center;
+    @include full-width;
+    &__logo {
+        width: 43vw;
+        margin: 5vw 0 1.5vw 0;
+        padding-bottom: 1vw;
+    }
+    &__location {
+        display: inline-flex;
+        height: 14.9vw;
+        min-height: 12vw;
+        width: 100%;
+        background-color: rgb(236, 234, 234);
+        align-items: center;
+        justify-content: center;
+        box-shadow: inset 0 0.5vw 1vw #c9c9c9;
+        & p {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-left: 5vw;
+        }
+        &-icon {
+            font-size: 1.1em;
+        }
+    }  
+}
+
+//EXPLORE
+
+.explore {
+    height: 69vw;
+    min-height: 40vw;
+    text-align: center;
+    padding-top: 7vw;
+    background: darken(#FFF, 4%);
+    &__title {
+        padding: 3vw 15vw 0 15vw;
+        font-size: 1.51em;
+    }
+    &__line {
+        padding: 3.5vw 8vw 7.5vw 8vw;
+        font-size: 1.21em;
+        color: rgb(107, 107, 107);
+    }
+}
+
+.main-button {
+    width: 59vw;
+    height: 14vw;
+    border: none;
+    border-radius: 7vw;
+    color: white;
+    font-size: 4vw;
+    box-shadow: 0.2vw 0.8vw 1.9vw 0.1vw #bbbbbb;
+    background: linear-gradient(175deg, $color-secondary, $color-primary);
+}
+
+// STEPS
+
+.steps {
+    height: 117vw;
+    padding: 12vw $padding-side;
+    @include full-width;
+    &__title {
+        font-size: 1.55em;
+        padding-bottom: 7vw;
+        padding-left: 1vw;
+    }
+    &__container {
+        display: inline-flex;
+        align-items: center;
+
+        height: 20vw;
+        width: 100%;
+        margin-bottom: 5.9vw;
+        border-radius: 7vw;
+        background: darken(#FFF, 3%);
+        box-shadow: 0.2vw 1vw 1.5vw #e2e2e2;
+        position: relative;
+    }
+    &__number-container {
+        display: inline-flex;
+        height: 6vw;
+        width: 6vw;
+        font-size: 0.93em;
+        border-radius: 10vw;
+        background: $color-primary;
+        color: #FFF;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: -3vw;
+    }
+    &__icon {
+        @include steps-icon-properties;
+        &-1 {
+            padding-right: 7.1vw;
+        } 
+        &-2 {
+            padding-right: 6vw;
+        }
+        &-3 {
+            padding-right: 4vw;
+        }
+    }
+
+    &__line {
+        display: inline-block;
+        
+        font-size: 1.04em;
+        font-weight: bold;
+    }
+    & a {
+        text-decoration: none;
+        color: #000;
+    }
+    & ul {
+        list-style: none;
+        padding-left: 4vw;  
+    }
+}
+
+// RESTAURANTS
+
+.restaurants {
+    padding : 13vw $padding-side;
+    display: grid;
+    grid-template-rows:  14vw 72vw 72vw 72vw 71vw;
+    background: darken(#FFF, 4%);
+    &__title {
+        font-size: 1.6em;
+    }
+}
+
+.restcard {
+    height: 66.5vw;
+    box-shadow: $shadows;
+    border-radius: 1em;
+    background-color: white;
+    position: relative;
+    @include full-width;
+    & a {
+        text-decoration: none;
+    }
+    &__pic {
+        object-fit: cover;
+        width: 100%;
+        height: 46vw;
+        background-position-y: -25%;
+        
+    }
+    &__new-icon {
+        height: 7.5vw;
+        width: 20vw;
+        display: inline-flex;
+        border-radius: 0.6vw;
+        background-color: $color-tertiary;
+        color: darken($color-tertiary, 37%);
+        font-weight: bold;
+        font-size: 0.9em;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 4vw;
+        right: 3vw; 
+    }
+    &__overlay {
+        color: black;
+        padding: 3.5vw 0 0 3vw;
+        height: 100%;
+        & h3 {
+            font-size: 1.15em;
+        }
+        & p {
+            font-size: 1.1em;
+            padding-top: 1.2vw;
+        }
+        &-icon {
+            position: absolute;
+            right: 6vw;
+            bottom: 9vw;
+            font-size: 1.55em;
+        }
+    }
+}
+
+//FOOTER
+
+.footer {
+    height: 52vw;
+    padding: $padding-side;;
+    background: darken(#FFF, 77%);
+    color: #FFF;
+    @include full-width;
+    &__title {
+        font-family: Shrikhand;
+        font-weight: normal;
+        font-size: 1.2em;
+        color: #FFF;
+        padding-bottom: 5vw;
+    }
+    &__list-icon {
+        float: left;
+        font-size: 0.95em;
+    }
+    & ul {
+        list-style: none;
+    }
+    & a {
+        display: block;
+        text-decoration: none;
+        color: #FFF;
+    }
+    &__icon-line {
+        padding-left: 7vw;
+    }
+    & p {
+        padding-bottom: 2.2vw;
+        font-size: 1.05em;
+        line-height: 1.05em;
+    }
+}
