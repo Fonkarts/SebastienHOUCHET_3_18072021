@@ -8,51 +8,62 @@ body {
 }
 
 .header {
-  height: 30.7vw;
-  text-align: center;
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow: hidden;
+  position: relative;
 }
 
 .header__logo {
+  margin: 5.5vw 0 0.7vw 0;
   width: 43vw;
-  margin: 5vw 0 1.5vw 0;
-  padding-bottom: 1vw;
+  padding-bottom: 3vw;
 }
 
-.header__location {
+.header h1 {
+  text-align: center;
+}
+
+.header__home-button {
+  position: absolute;
+  top: 6.5vw;
+  left: 6vw;
+  font-size: 5vw;
+  color: #333333;
+}
+
+.location {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  height: 14.9vw;
-  min-height: 12vw;
   width: 100%;
-  background-color: #eceaea;
+  padding: 4vw 0 4vw 28.8vw;
+  background-color: #e8e8e8;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-shadow: inset 0 0.5vw 1vw #c9c9c9;
           box-shadow: inset 0 0.5vw 1vw #c9c9c9;
 }
 
-.header__location p {
-  font-size: 1.1em;
+.location p {
+  font-size: 4.2vw;
   font-weight: bold;
-  margin-left: 5vw;
+  margin-left: 4vw;
+  color: #3b3b3b;
 }
 
-.header__location-icon {
-  font-size: 1.1em;
+.location__icon {
+  font-size: 4.2vw;
+  color: #3b3b3b;
 }
 
 .explore {
-  height: 69vw;
-  min-height: 40vw;
   text-align: center;
   padding-top: 7vw;
   background: whitesmoke;
@@ -60,38 +71,51 @@ body {
 
 .explore__title {
   padding: 3vw 15vw 0 15vw;
-  font-size: 1.51em;
+  font-size: 6vw;
 }
 
 .explore__line {
   padding: 3.5vw 8vw 7.5vw 8vw;
-  font-size: 1.21em;
-  color: #6b6b6b;
+  font-size: 4.7vw;
+  color: #737373;
 }
 
 .main-button {
   width: 59vw;
   height: 14vw;
+  margin-bottom: 15vw;
   border: none;
   border-radius: 7vw;
-  color: white;
   font-size: 4vw;
+  font-weight: bold;
   -webkit-box-shadow: 0.2vw 0.8vw 1.9vw 0.1vw #bbbbbb;
           box-shadow: 0.2vw 0.8vw 1.9vw 0.1vw #bbbbbb;
   background: linear-gradient(175deg, #FF79DA, #9356DC);
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.main-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.main-button:hover {
+  background: linear-gradient(175deg, #ff8ade, #9a62df);
+  -webkit-box-shadow: 0.3vw 0.9vw 1.9vw 0.1vw #8d8d8d;
+          box-shadow: 0.3vw 0.9vw 1.9vw 0.1vw #8d8d8d;
 }
 
 .steps {
-  height: 117vw;
-  padding: 12vw 5vw;
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow: hidden;
+  padding: 12vw 5vw;
 }
 
 .steps__title {
-  font-size: 1.55em;
+  font-size: 6.3vw;
   padding-bottom: 7vw;
   padding-left: 1vw;
 }
@@ -113,13 +137,17 @@ body {
   position: relative;
 }
 
+.steps__container-colored {
+  background-color: #f3ecfb;
+}
+
 .steps__number-container {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   height: 6vw;
   width: 6vw;
-  font-size: 0.93em;
+  font-size: 3.5vw;
   border-radius: 10vw;
   background: #9356DC;
   color: #FFF;
@@ -135,7 +163,7 @@ body {
 
 .steps__icon {
   color: #787878;
-  font-size: 1.3em;
+  font-size: 5.4vw;
   padding: 0 0 0 8vw;
 }
 
@@ -149,11 +177,12 @@ body {
 
 .steps__icon-3 {
   padding-right: 4vw;
+  color: #9356DC;
 }
 
 .steps__line {
   display: inline-block;
-  font-size: 1.04em;
+  font-size: 4.1vw;
   font-weight: bold;
 }
 
@@ -177,20 +206,20 @@ body {
 }
 
 .restaurants__title {
-  font-size: 1.6em;
+  font-size: 6.2vw;
 }
 
 .restcard {
-  height: 66.5vw;
-  -webkit-box-shadow: 0 0.5vw 1.5vw 0.1vw #e9e8e8;
-          box-shadow: 0 0.5vw 1.5vw 0.1vw #e9e8e8;
-  border-radius: 1em;
-  background-color: white;
-  position: relative;
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow: hidden;
+  height: 66.5vw;
+  -webkit-box-shadow: 0 0.5vw 1.5vw 0.1vw #e9e8e8;
+          box-shadow: 0 0.5vw 1.5vw 0.1vw #e9e8e8;
+  border-radius: 4.3vw;
+  background-color: white;
+  position: relative;
 }
 
 .restcard a {
@@ -202,12 +231,11 @@ body {
      object-fit: cover;
   width: 100%;
   height: 46vw;
-  background-position-y: -25%;
 }
 
 .restcard__new-icon {
   height: 7.5vw;
-  width: 20vw;
+  width: 21.4vw;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -215,7 +243,7 @@ body {
   background-color: #99E2D0;
   color: #2a947a;
   font-weight: bold;
-  font-size: 0.9em;
+  font-size: 3.65vw;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -229,48 +257,73 @@ body {
 
 .restcard__overlay {
   color: black;
-  padding: 3.5vw 0 0 3vw;
-  height: 100%;
+  padding: 1.5vw 0 0 3vw;
 }
 
 .restcard__overlay h3 {
-  font-size: 1.15em;
+  font-size: 4.55vw;
+  display: inline-block;
 }
 
 .restcard__overlay p {
-  font-size: 1.1em;
+  font-size: 4.4vw;
   padding-top: 1.2vw;
 }
 
 .restcard__overlay-icon {
+  position: relative;
+  float: right;
+  margin: 1vw 6vw 0 0;
+  background-color: red;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 3vw;
+  height: 3vw;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  opacity: 1;
+}
+
+.restcard__overlay-icon::before, .restcard__overlay-icon::after {
   position: absolute;
-  right: 6vw;
-  bottom: 9vw;
-  font-size: 1.55em;
+  content: "";
+  width: 3vw;
+  height: 3vw;
+  background-color: #f11515;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.restcard__overlay-icon::before {
+  left: -1.5vw;
+}
+
+.restcard__overlay-icon::after {
+  top: -1.5vw;
 }
 
 .footer {
-  height: 52vw;
-  padding: 5vw;
-  background: #3b3b3b;
-  color: #FFF;
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow: hidden;
+  padding: 6vw 5vw;
+  background: #3b3b3b;
+  color: #FFF;
 }
 
 .footer__title {
   font-family: Shrikhand;
   font-weight: normal;
-  font-size: 1.2em;
+  font-size: 4.7vw;
   color: #FFF;
-  padding-bottom: 5vw;
+  padding-bottom: 5.3vw;
 }
 
 .footer__list-icon {
   float: left;
-  font-size: 0.95em;
+  font-size: 3.5vw;
 }
 
 .footer ul {
@@ -288,8 +341,111 @@ body {
 }
 
 .footer p {
-  padding-bottom: 2.2vw;
-  font-size: 1.05em;
-  line-height: 1.05em;
+  padding-bottom: 3vw;
+  font-size: 4.2vw;
+  line-height: 4.2vw;
+}
+
+.showcase {
+  z-index: 1;
+  position: relative;
+}
+
+.overview {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  height: 68vw;
+  position: absolute;
+  top: -59vw;
+  z-index: 0;
+}
+
+.overview__large-pic {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 72vw;
+}
+
+.menu {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  margin-top: 56.5vw;
+  border-radius: 10vw 10vw 0 0;
+  background: whitesmoke;
+  padding: 8vw 4vw;
+  position: relative;
+  /*&__title-icon {
+        position: absolute;
+        right: 8vw;
+        top: 9.5vw;
+    }*/
+}
+
+.menu__main-title {
+  font-family: Shrikhand;
+  font-weight: normal;
+  font-size: 7.6vw;
+  width: 73vw;
+}
+
+.menu__section-title {
+  padding: 5vw 0 5.5vw 1vw;
+  font-weight: normal;
+  font-size: 4.2vw;
+}
+
+.menu__section-title div {
+  display: inline-block;
+  height: 6.4vw;
+  border-bottom: 0.8vw solid #99E2D0;
+}
+
+.menu__meal {
+  margin-bottom: 3.6vw;
+  padding: 3.5vw 2.4vw 3vw 2.4vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 18.3vw;
+  border-radius: 4vw;
+  background: #FFF;
+  position: relative;
+  -webkit-box-shadow: 0.2vw 0.2vw 1.6vw #ececec;
+          box-shadow: 0.2vw 0.2vw 1.6vw #ececec;
+}
+
+.menu__meal h4 {
+  font-size: 4.5vw;
+}
+
+.menu__meal p {
+  font-size: 3.8vw;
+  padding-top: 1.2vw;
+}
+
+.menu__meal-price {
+  position: absolute;
+  right: 4vw;
+  bottom: 3.3vw;
+}
+
+.menu__button {
+  width: 50vw;
+  height: 12.9vw;
+  margin: 8.7vw 20% 7.5vw 20%;
+  font-size: 4.1vw;
+}
+
+.menu__button:hover {
+  background: linear-gradient(175deg, #ff8ade, #9a62df);
+  -webkit-box-shadow: 0.3vw 0.9vw 1.9vw 0.1vw #8d8d8d;
+          box-shadow: 0.3vw 0.9vw 1.9vw 0.1vw #8d8d8d;
+  -webkit-transition: 300ms;
+  transition: 300ms;
 }
 /*# sourceMappingURL=main.css.map */

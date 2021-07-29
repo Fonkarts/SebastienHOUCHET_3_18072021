@@ -3,7 +3,7 @@
 	
 	<head>
 		<meta charset=utf-8>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width">
 		<title>Oh my Food !</title>
 		<link href="scss/main.css" rel="stylesheet">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,18 +17,22 @@
 			<div class="header__logo-container">
 				<h1><img class="header__logo" src="docs/ohmyfood@2x.svg" alt="Le logo de l'entreprise OhmyFood!"></h1>
 			</div>
-
-			<div class="header__location">
-				<i class="fas fa-map-marker-alt header__location-icon"></i>
-				<p>Paris, Belleville</p>
-			</div>
 		</header>
+
+		<div class="location">
+			<i class="fas fa-map-marker-alt location__icon"></i>
+			<p>Paris, Belleville</p>
+		</div>
 
 		<section class="explore">
 
 			<h2 class="explore__title">Réservez le menu qui vous convient</h2>
 			<p class=" explore__line">Découvrez des restaurants d'exception, sélectionnés par nos soins.</p>
-			<button class="main-button"><span>Explorer nos restaurants</span></button>
+			<button type="input" class="main-button">
+				<a href="*">
+					<span>Explorer nos restaurants</span>
+				</a>
+			</button>
 
 		</section>
 
@@ -62,7 +66,7 @@
 				</li>
 
 				<li>
-					<div class="steps__container">
+					<div class="steps__container steps__container-colored">
 						<a href="*">
 							<div class="steps__number-container">
 								<p>3</p>
@@ -90,9 +94,9 @@
 						<p>Nouveau</p>
 					</div>
 					<div class="restcard__overlay">
+						<div class="restcard__overlay-icon"></div>
 						<h3>La palette du goût</h3>
 						<p>Ménilmontant</p>
-						<i class="far fa-heart restcard__overlay-icon"></i>
 					</div>
 				</a>
 			</article>
@@ -106,9 +110,9 @@
 						<p>Nouveau</p>
 					</div>
 					<div class="restcard__overlay">
+						<div class="restcard__overlay-icon"></div>
 						<h3>La note enchantée</h3>
 						<p>Charonne</p>
-						<i class="far fa-heart restcard__overlay-icon"></i>
 					</div>
 				</a>
 			</article>
@@ -119,9 +123,9 @@
 					src="docs/toa-heftiba-DQKerTsQwi0-unsplash-min.jpg" 
 					alt="Une petite photo du restaurant 'À la française'">
 					<div class="restcard__overlay">
+						<div class="restcard__overlay-icon"></div>
 						<h3>À la française</h3>
 						<p>Cité Rouge</p>
-						<i class="far fa-heart restcard__overlay-icon"></i>
 					</div>
 				</a>
 			</article>
@@ -132,9 +136,9 @@
 					src="docs/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash-min.jpg" 
 					alt="Une petite photo du restaurant 'Le délice des sens'">
 					<div class="restcard__overlay">
+						<div class="restcard__overlay-icon"></div>
 						<h3>Le délice des sens</h3>
 						<p>Folie-Méricourt</p>
-						<i class="far fa-heart restcard__overlay-icon"></i>
 					</div>
 				</a>
 			</article>

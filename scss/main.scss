@@ -4,6 +4,7 @@ $color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tertiary: #99E2D0;
 
+
 $font-title: Shrikhand;
 $font-text: Roboto;
 
@@ -19,7 +20,7 @@ $shadows: 0 0.5vw 1.5vw 0.1vw #e9e8e8;
 
 @mixin steps-icon-properties {
     color: lighten(#000, 47%);
-    font-size: 1.3em;
+    font-size: 5.4vw;
     padding: 0 0 0 8vw;
 }
 
@@ -36,79 +37,97 @@ body {
 // HEADER
 
 .header {
-    height: 30.7vw;
-    text-align: center;
     @include full-width;
+    position: relative;
     &__logo {
+        margin: 5.5vw 0 0.7vw 0;
         width: 43vw;
-        margin: 5vw 0 1.5vw 0;
-        padding-bottom: 1vw;
+        padding-bottom: 3vw;
     }
-    &__location {
-        display: inline-flex;
-        height: 14.9vw;
-        min-height: 12vw;
-        width: 100%;
-        background-color: rgb(236, 234, 234);
-        align-items: center;
-        justify-content: center;
-        box-shadow: inset 0 0.5vw 1vw #c9c9c9;
-        & p {
-            font-size: 1.1em;
-            font-weight: bold;
-            margin-left: 5vw;
-        }
-        &-icon {
-            font-size: 1.1em;
-        }
-    }  
+    & h1 {
+        text-align: center;
+    }
+    &__home-button {
+        position: absolute;
+        top: 6.5vw;
+        left: 6vw;
+        font-size: 5vw;
+        color: lighten(#000, 20%);
+    }
+}
+
+.location {
+    @include full-width;
+    display: inline-flex;
+    width: 100%;
+    padding: 4vw 0 4vw 28.8vw;
+    background-color: darken(#FFF, 9%);
+    align-items: center;
+    box-shadow: inset 0 0.5vw 1vw #c9c9c9;
+    & p {
+        font-size: 4.2vw;
+        font-weight: bold;
+        margin-left: 4vw;
+        color: lighten(#000, 23%);
+    }
+    &__icon {
+        font-size: 4.2vw;
+        color: lighten(#000, 23%);
+    }
 }
 
 //EXPLORE
 
 .explore {
-    height: 69vw;
-    min-height: 40vw;
     text-align: center;
     padding-top: 7vw;
     background: darken(#FFF, 4%);
     &__title {
         padding: 3vw 15vw 0 15vw;
-        font-size: 1.51em;
+        font-size: 6vw;
     }
     &__line {
         padding: 3.5vw 8vw 7.5vw 8vw;
-        font-size: 1.21em;
-        color: rgb(107, 107, 107);
+        font-size: 4.7vw;
+        color: lighten(#000, 45%);
     }
 }
 
 .main-button {
     width: 59vw;
     height: 14vw;
+    margin-bottom: 15vw;
     border: none;
     border-radius: 7vw;
-    color: white;
     font-size: 4vw;
+    font-weight: bold;
     box-shadow: 0.2vw 0.8vw 1.9vw 0.1vw #bbbbbb;
     background: linear-gradient(175deg, $color-secondary, $color-primary);
+    transition: all 300ms ease-in-out;
+    & a {
+        text-decoration: none;
+        color: white;
+
+    }
+    &:hover {
+        background: linear-gradient(175deg, hsl(317, 100, 77), hsl(267,66,63) );
+        box-shadow: 0.3vw 0.9vw 1.9vw 0.1vw #8d8d8d;
+    }
 }
 
 // STEPS
 
 .steps {
-    height: 117vw;
-    padding: 12vw $padding-side;
     @include full-width;
+    padding: 12vw $padding-side;
     &__title {
-        font-size: 1.55em;
+        font-size: 6.3vw;
         padding-bottom: 7vw;
         padding-left: 1vw;
     }
     &__container {
         display: inline-flex;
         align-items: center;
-
         height: 20vw;
         width: 100%;
         margin-bottom: 5.9vw;
@@ -116,12 +135,15 @@ body {
         background: darken(#FFF, 3%);
         box-shadow: 0.2vw 1vw 1.5vw #e2e2e2;
         position: relative;
+        &-colored {
+            background-color: lighten($color-primary, 35.5%);
+        }
     }
     &__number-container {
         display: inline-flex;
         height: 6vw;
         width: 6vw;
-        font-size: 0.93em;
+        font-size: 3.5vw;
         border-radius: 10vw;
         background: $color-primary;
         color: #FFF;
@@ -140,13 +162,14 @@ body {
         }
         &-3 {
             padding-right: 4vw;
+            color: $color-primary;
         }
     }
 
     &__line {
         display: inline-block;
         
-        font-size: 1.04em;
+        font-size: 4.1vw;
         font-weight: bold;
     }
     & a {
@@ -167,36 +190,34 @@ body {
     grid-template-rows:  14vw 72vw 72vw 72vw 71vw;
     background: darken(#FFF, 4%);
     &__title {
-        font-size: 1.6em;
+        font-size: 6.2vw;
     }
 }
 
 .restcard {
+    @include full-width;
     height: 66.5vw;
     box-shadow: $shadows;
-    border-radius: 1em;
+    border-radius: 4.3vw;
     background-color: white;
     position: relative;
-    @include full-width;
     & a {
         text-decoration: none;
     }
     &__pic {
         object-fit: cover;
         width: 100%;
-        height: 46vw;
-        background-position-y: -25%;
-        
+        height: 46vw;        
     }
     &__new-icon {
         height: 7.5vw;
-        width: 20vw;
+        width: 21.4vw;
         display: inline-flex;
         border-radius: 0.6vw;
         background-color: $color-tertiary;
         color: darken($color-tertiary, 37%);
         font-weight: bold;
-        font-size: 0.9em;
+        font-size: 3.65vw;
         align-items: center;
         justify-content: center;
         position: absolute;
@@ -205,20 +226,43 @@ body {
     }
     &__overlay {
         color: black;
-        padding: 3.5vw 0 0 3vw;
-        height: 100%;
+        padding: 1.5vw 0 0 3vw;
         & h3 {
-            font-size: 1.15em;
+            font-size: 4.55vw;
+            display: inline-block;
         }
         & p {
-            font-size: 1.1em;
+            font-size: 4.4vw;
             padding-top: 1.2vw;
         }
+
+        
         &-icon {
-            position: absolute;
-            right: 6vw;
-            bottom: 9vw;
-            font-size: 1.55em;
+            position: relative;
+            float: right;
+            margin: 1vw 6vw 0 0;
+            background-color: red;
+            box-sizing: border-box;
+            width: 3vw;
+            height: 3vw;
+            transform: rotate(45deg);
+            opacity: 1;
+            &::before,
+            &::after {
+                position: absolute;
+                content: "";
+                width: 3vw;
+                height: 3vw;
+                background-color: rgb(241, 21, 21);
+                box-sizing: border-box;
+                border-radius: 50%;
+            }
+            &::before {
+                left: -1.5vw;
+            }
+            &::after {
+                top: -1.5vw;
+            }
         }
     }
 }
@@ -226,21 +270,20 @@ body {
 //FOOTER
 
 .footer {
-    height: 52vw;
-    padding: $padding-side;;
+    @include full-width;
+    padding: 6vw $padding-side;
     background: darken(#FFF, 77%);
     color: #FFF;
-    @include full-width;
     &__title {
-        font-family: Shrikhand;
+        font-family: $font-title;
         font-weight: normal;
-        font-size: 1.2em;
+        font-size: 4.7vw;
         color: #FFF;
-        padding-bottom: 5vw;
+        padding-bottom: 5.3vw;
     }
     &__list-icon {
         float: left;
-        font-size: 0.95em;
+        font-size: 3.5vw;
     }
     & ul {
         list-style: none;
@@ -254,8 +297,93 @@ body {
         padding-left: 7vw;
     }
     & p {
-        padding-bottom: 2.2vw;
-        font-size: 1.05em;
-        line-height: 1.05em;
+        padding-bottom: 3vw;
+        font-size: 4.2vw;
+        line-height: 4.2vw;
     }
+}
+
+// EXCLUSIF PAGES 1,2,3,4
+
+.showcase {
+    z-index: 1;
+    position: relative;
+}
+
+.overview {
+    @include full-width;
+    height: 68vw;
+    position: absolute;
+    top: -59vw;
+    z-index: 0;
+    &__large-pic {
+        object-fit: cover;
+        width: 100%;
+        height: 72vw;
+    }
+}
+
+.menu {
+    @include full-width;
+    margin-top: 56.5vw;
+    border-radius: 10vw 10vw 0 0;
+    background: darken(#FFF, 4%);
+    padding: 8vw 4vw;
+    position: relative;
+    &__main-title {
+        font-family: $font-title;
+        font-weight: normal;
+        font-size: 7.6vw;
+        width: 73vw;
+    }
+    /*&__title-icon {
+        position: absolute;
+        right: 8vw;
+        top: 9.5vw;
+    }*/
+    &__section-title {
+        padding: 5vw 0 5.5vw 1vw;
+        font-weight: normal;
+        font-size: 4.2vw;
+        & div {
+            display: inline-block;
+            height: 6.4vw;
+            border-bottom: 0.8vw solid $color-tertiary;
+        }
+    }
+    &__meal {
+        margin-bottom: 3.6vw;
+        padding: 3.5vw 2.4vw 3vw 2.4vw;
+        box-sizing: border-box;
+        width: 100%;
+        height: 18.3vw;
+        border-radius: 4vw;
+        background: #FFF;
+        position: relative;
+        box-shadow: 0.2vw 0.2vw 1.6vw #ececec;
+        & h4 {
+            font-size: 4.5vw;
+        }
+        & p {
+            font-size: 3.8vw;
+            padding-top: 1.2vw;
+        }
+        &-price {
+            position: absolute;
+            right: 4vw;
+            bottom: 3.3vw;
+        }
+    }
+    &__button {
+        width: 50vw;
+        height: 12.9vw;
+        margin: 8.7vw 20% 7.5vw 20%;
+        font-size: 4.1vw;
+        &:hover {
+            background: linear-gradient(175deg, hsl(317, 100, 77), hsl(267,66,63) );
+            box-shadow: 0.3vw 0.9vw 1.9vw 0.1vw #8d8d8d;
+            transition: 300ms;
+        }
+    }
+
 }
