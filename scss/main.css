@@ -1,3 +1,25 @@
+@-webkit-keyframes selected-meal {
+  0% {
+    -webkit-transform: translateX(15vw);
+            transform: translateX(15vw);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes selected-meal {
+  0% {
+    -webkit-transform: translateX(15vw);
+            transform: translateX(15vw);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -396,27 +418,6 @@ body {
         right: 8vw;
         top: 9.5vw;
     }*/
-  /*&__checkbox {
-        width: 15vw;
-        background: $color-tertiary;
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0 4vw 4vw 0;*/
-  /*&-icon {
-            padding: 2vw;
-            border-radius: 6vw;
-            color: $color-tertiary;
-            background: #fff;
-        }
-        &:active {
-            transform: translateX(15vw);
-        }
-    }*/
 }
 
 .menu__main-title {
@@ -454,30 +455,77 @@ body {
           box-shadow: 0 0.5vw 1.6vw 0.1vw #dfdfdf;
 }
 
-.menu__meal:active {
-  background: red;
-}
-
 .menu__meal h4 {
   font-size: 4.5vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .menu__meal p {
   font-size: 3.8vw;
   padding-top: 1.2vw;
   display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .menu__meal-price {
-  /*position: absolute;
-            right: 4vw;
-            bottom: 3.3vw;*/
   float: right;
   padding-right: 3vw;
 }
 
+.menu__meal:hover > .menu__meal-price {
+  padding-right: 15vw;
+  -webkit-transition: 500ms ease-in-out;
+  transition: 500ms ease-in-out;
+}
+
+.menu__meal:hover > h4,
+.menu__meal:hover > p {
+  width: 57vw;
+}
+
+.menu__meal:hover > .menu__checkbox {
+  -webkit-animation: selected-meal 600ms cubic-bezier(0.46, 0, 0.28, 0.99) forwards;
+          animation: selected-meal 600ms cubic-bezier(0.46, 0, 0.28, 0.99) forwards;
+}
+
+.menu__meal:hover > .menu__checkbox > .menu__checkbox-icon {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  -webkit-transition: 500ms 150ms ease-in-out;
+  transition: 500ms 150ms ease-in-out;
+}
+
+.menu__checkbox {
+  width: 15vw;
+  background: #99E2D0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 0 4vw 4vw 0;
+  -webkit-transform: translateX(15vw);
+          transform: translateX(15vw);
+}
+
 .menu__checkbox-icon {
-  color: transparent;
+  padding: 1.1vw 1vw 1vw 1vw;
+  font-size: 4vw;
+  border-radius: 6vw;
+  color: #99E2D0;
+  background: #fff;
 }
 
 .menu__button {
@@ -764,11 +812,26 @@ body {
   }
   .menu__meal p {
     padding-top: 1.1vw;
-    font-size: 1.75vw;
+    font-size: 1.7vw;
   }
   .menu__meal-price {
-    right: 2vw;
-    bottom: 1.7vw;
+    float: right;
+    padding-right: 0.2vw;
+  }
+  .menu__meal:hover > h4,
+  .menu__meal:hover > p {
+    width: 24vw;
+  }
+  .menu__meal:hover > .menu__meal-price {
+    padding-right: 8vw;
+  }
+  .menu__checkbox {
+    width: 9vw;
+    border-radius: 0 2vw 2vw 0;
+  }
+  .menu__checkbox-icon {
+    font-size: 2.4vw;
+    padding: 0.85vw 0.8vw 0.8vw 0.8vw;
   }
   .menu__button {
     margin: 0;
@@ -1046,8 +1109,8 @@ body {
   .menu__meal {
     margin-bottom: 1.6vw;
     padding: 1vw 2.4vw 0.7vw 1.6vw;
-    width: 36vw;
-    height: 6vw;
+    width: 35vw;
+    height: 6.2vw;
     border-radius: 1.5vw;
     -webkit-box-shadow: 0.1vw 0.4vw 0.5vw #e2e2e2;
             box-shadow: 0.1vw 0.4vw 0.5vw #e2e2e2;
@@ -1057,11 +1120,25 @@ body {
   }
   .menu__meal p {
     padding-top: 0.8vw;
-    font-size: 1.2vw;
+    font-size: 1.25vw;
   }
   .menu__meal-price {
-    right: 2vw;
-    bottom: 0.9vw;
+    padding-right: 0;
+  }
+  .menu__meal:hover > h4,
+  .menu__meal:hover > p {
+    width: 21vw;
+  }
+  .menu__meal:hover > .menu__meal-price {
+    padding-right: 6vw;
+  }
+  .menu__checkbox {
+    width: 7vw;
+    border-radius: 0 1.5vw 1.5vw 0;
+  }
+  .menu__checkbox-icon {
+    font-size: 1.7vw;
+    padding: 0.75vw 0.7vw 0.7vw 0.7vw;
   }
   .menu__button {
     margin: 0;
