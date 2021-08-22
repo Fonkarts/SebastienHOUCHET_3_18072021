@@ -42,10 +42,10 @@ $shadows__button-desktop: 0.1vw 0.3vw 0.3vw #bbbbbb;
 }
 
 @keyframes selected-meal {
-    0% {
+    from {
         transform: translateX(15vw);
     }
-    100% {
+    to {
         transform: translateX(0);
     }
 }
@@ -92,6 +92,79 @@ $shadows__button-desktop: 0.1vw 0.3vw 0.3vw #bbbbbb;
     }
 }
 
+@keyframes menu__spawn {
+    from {
+        transform: translateY(2vw);
+        opacity: 0;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes menu-title__spawn {
+    from {
+        transform: translateX(-5vw);
+        opacity: 0;
+    }
+   40% {
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes heart__outline-animation {
+    from {
+        stroke-dashoffset: 0;
+    }
+    30% {
+        stroke-dashoffset: 1550;
+    }
+    60% {
+        stroke-dashoffset: 3100;
+        fill: transparent;
+        transform: scale(1);
+    }
+    80% {
+        fill: url(#heart__gradient);
+        transform: scale(1.1);
+    }
+    90% {
+        transform: scale(1);
+    }
+    to {
+        stroke-dashoffset: 3100;
+        stroke: none;
+        fill: url(#heart__gradient);
+    }
+}
+
+@keyframes heart__background-animation {
+    70% {
+        fill: transparent;
+        transform: scale(1);
+    }
+    80% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.5);
+        fill: url(#heart__gradient);
+    }
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -102,12 +175,12 @@ body {
     position: relative;
 }
 
-.header, 
+.header__home, 
 .location, 
 .explore, 
 .grid__steps-rest, 
-.footer {
-    animation: body__spawn 200ms 2800ms linear forwards;
+.footer__home {
+    animation: body__spawn 400ms 1700ms linear forwards;
     opacity: 0.05;
 }
 
@@ -139,7 +212,7 @@ body {
 
         @for $i from 1 through 3 {
             &:nth-child(#{$i}) {
-                animation: spinner__rotation-#{$i} 1.15s linear 2.5;
+                animation: spinner__rotation-#{$i} 1000ms linear 2;
             }
         }
         &:nth-child(1) {
@@ -223,21 +296,12 @@ body {
     border: none;
     border-radius: 7vw;
     font-size: 4vw;
-    font-weight: bold;
+    font-family: $font-text;
+    cursor: pointer;
+    color: white;
     box-shadow: $shadows__button-mobile;
     background: linear-gradient(175deg, $color-secondary, $color-primary);
     transition: all 300ms ease-in-out;
-    & a {
-        text-decoration: none;
-        display: block;
-        height: 100%;
-        color: white;
-        & div {
-            height: 100%;
-            display: inline-flex;
-            align-items: center;
-        }
-    }
     &:hover {
         background: linear-gradient(175deg, hsl(317, 100, 77), hsl(267,66,63) );
         box-shadow: 0.3vw 0.9vw 1.9vw 0.1vw #8d8d8d;
@@ -354,7 +418,7 @@ body {
     }
     &__overlay {
         color: black;
-        padding: 4vw 0 0 3vw;
+        padding: 3.4vw 0 0 3vw;
         & h3 {
             font-size: 4.55vw;
             display: inline-block;
@@ -362,34 +426,43 @@ body {
         & p {
             font-size: 4.4vw;
             padding-top: 1.2vw;
-        }        
+            display: inline-block;
+        }  
         &-icon {
             position: relative;
-            background: red;
+            width: 6.5vw;
             float: right;
-            margin: 3vw 8vw 0 0;
-            box-sizing: border-box;
-            width: 3vw;
-            height: 3vw;
-            transform: rotate(45deg);
-            opacity: 1;
-            &::before,
-            &::after {
+            padding: 0 6vw 7vw 0;
+            fill: transparent;
+            stroke: black;
+            stroke-width: 4vw;
+            cursor: pointer;
+            & svg {
+                width: 6.5vw;
+                overflow: visible;
+            }
+            & path {
+                stroke-dashoffset: 0;
+                stroke-dasharray: 1550;
+                transform-origin: center;
+            }
+            & .heart__background {
                 position: absolute;
-                content: "";
-                width: 3vw;
-                height: 3vw;
-                background-color: rgb(241, 21, 21);
-                box-sizing: border-box;
-                border-radius: 50%;
+                left: 0;
+                right: 0;
+                z-index: -1;
+                stroke: none;
             }
-            &::before {
-                left: -1.5vw;
+            & .heart__outline:hover path {
+                animation: heart__outline-animation 1000ms ease-in-out forwards;
             }
-            &::after {
-                top: -1.5vw;
+            & .heart__outline:hover ~ .heart__background path {
+                animation: heart__background-animation 1000ms ease-in-out forwards;
             }
-        }
+                &:hover {
+                    cursor: pointer;
+                }
+        }    
     }
 }
 
@@ -449,6 +522,82 @@ body {
     }
 }
 
+.menu { // ANIMATION UNIQUEMENT
+    &__main-title {
+        animation: menu-title__spawn 950ms ease-out both;
+    }
+    &__starters,
+    &__main-courses,
+    &__desserts {
+        & h3,
+        & div:nth-child(2),
+        & div:nth-child(3):not(.menu__meal-price),
+        & div:nth-child(4):not(.menu__checkbox),
+        & div:nth-child(5) {
+            animation: menu__spawn 400ms cubic-bezier(.26,.18,.24,.81) both;
+        } 
+    }
+    &__starters {
+        & h3 {
+            animation-delay: 100ms;
+        }
+    
+        & div:nth-child(2) {
+            animation-delay: 200ms;
+        }
+    
+        & div:nth-child(3):not(.menu__meal-price) {
+            animation-delay: 300ms;
+        }
+    
+        & div:nth-child(4):not(.menu__checkbox) {
+            animation-delay: 400ms;
+        }
+    
+        & div:nth-child(5) {
+            animation-delay: 500ms;
+        }
+    }
+    &__main-courses {
+        & h3 {
+            animation-delay: 200ms;
+        }
+    
+        & div:nth-child(2) {
+            animation-delay: 300ms;
+        }
+    
+        & div:nth-child(3):not(.menu__meal-price) {
+            animation-delay: 400ms;
+        }
+    
+        & div:nth-child(4):not(.menu__checkbox) {
+            animation-delay: 500ms;
+        }
+    }
+    &__desserts {
+        & h3 {
+            animation-delay: 300ms;
+        }
+    
+        & div:nth-child(2) {
+            animation-delay: 400ms;
+        }
+    
+        & div:nth-child(3):not(.menu__meal-price) {
+            animation-delay: 500ms;
+        }
+    
+        & div:nth-child(4):not(.menu__checkbox) {
+            animation-delay: 600ms;
+        }
+    }
+    &__button {
+        animation: menu__spawn 600ms 500ms cubic-bezier(.26,.18,.24,.81) both;
+    }
+}
+
+
 .menu {
     @include full-width;
     margin-top: 56.5vw;
@@ -462,16 +611,14 @@ body {
         font-size: 7.6vw;
         width: 73vw;
     }
-    /*&__title-icon {
-        position: absolute;
-        right: 0vw;
-        top: 9.5vw;
-    }*/
+    &__starters {
+        grid-column: 1;
+    }
     &__section-title {
         padding: 5vw 0 5.5vw 1vw;
         font-weight: normal;
         font-size: 4.2vw;
-        & div {
+        & span {
             display: inline-block;
             height: 6.4vw;
             border-bottom: 0.8vw solid $color-tertiary;
@@ -489,6 +636,9 @@ body {
         overflow: hidden;
         cursor: pointer;
         box-shadow: $shadows__main-mobile;
+        /*&:not(:hover) {
+            transition: all 800ms;
+        }*/
         & h4 {
             font-size: 4.5vw;
             text-overflow: ellipsis;
@@ -820,9 +970,9 @@ body {
         &__section-title {
             font-size: 2.1vw;
             padding-bottom: 2.5vw;
-            & div {
+            & span {
                 height: 3.4vw;
-                border-bottom: 0.3vw solid $color-tertiary;
+                border-bottom: 0.4vw solid $color-tertiary;
             }
         }
         &__meal {
@@ -902,7 +1052,7 @@ body {
 
 .location {
     @include desktop-only {
-        padding: 1.5vw 0 1.5vw 41vw;
+        padding: 1.5vw 0 1.5vw 43vw;
         & p {
             font-size: 1.6vw;
             margin-left: 1vw;
@@ -1134,7 +1284,7 @@ body {
         &__section-title {
             font-size: 1.6vw;
             padding: 3vw 0 2vw 1vw;
-            & div {
+            & span {
                 height: 2.5vw;
                 border-bottom: 0.3vw solid $color-tertiary;
             }
