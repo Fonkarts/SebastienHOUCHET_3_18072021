@@ -1,3 +1,16 @@
+/*-------------------------------------
+----MOBILE + ANIMATIONS + KEYFRAMES----
+-------------------------------------*/
+/* MOTS CLES POUR NAVIGATION VIA CTRL+F = 
+    - "KEYFRAMES"               - "PAGES"
+    - "VARIABLES ET MIXINS"     - "MENU"
+    - "HOMEPAGE"                - "ANIMATION SPINNER"
+    - "HEADER"                  - "ANIMATION COEUR"
+    - "LOCATION"                - "ANIMATION CHECKBOX"
+    - "STEPS"                   - "ANIMATION MENU"
+    - "EXPLORE"                 - "INTER" (Vue Tablette)
+    - "RESTAURANTS"             - "DESKTOP" (Vue Desktop)
+    - "FOOTER" */
 @-webkit-keyframes spinner__rotation-1 {
   from {
     -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0);
@@ -9,7 +22,6 @@
             transform: rotateX(35deg) rotateY(-45deg) rotateZ(1turn);
   }
 }
-
 @keyframes spinner__rotation-1 {
   from {
     -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0);
@@ -544,6 +556,7 @@ body {
 
 .restcard a {
   text-decoration: none;
+  color: black;
 }
 
 .restcard__pic {
@@ -594,7 +607,7 @@ body {
   position: relative;
   width: 6.5vw;
   float: right;
-  padding: 2vw 7vw 0 0;
+  margin: 2vw 7vw 0 0;
   fill: transparent;
   stroke: black;
   stroke-width: 4vw;
@@ -810,7 +823,7 @@ body {
 }
 
 .menu__title-icon {
-  padding: 2.8vw 5vw 0 0;
+  margin: 2.8vw 5vw 0 0;
 }
 
 .menu__starters {
@@ -951,7 +964,7 @@ body {
 
 @media screen and (min-width: 620px) and (max-width: 1080px) {
   .spinner__container {
-    top: 23%;
+    top: 14%;
     left: 43%;
   }
 }
@@ -1120,7 +1133,7 @@ body {
   .restcard__overlay-icon {
     width: 2.5vw;
     stroke-width: 2vw;
-    padding: 0.7vw 0.6vw 0 0;
+    margin: 0.7vw 0.6vw 0 0;
   }
   .restcard__overlay-icon svg {
     width: 2.5vw;
@@ -1198,7 +1211,7 @@ body {
     -ms-grid-row: 1;
     grid-row: 1;
     width: 2.8vw;
-    padding: 1.2vw 0 0 38vw;
+    margin: 1.2vw 0 0 38vw;
   }
   .menu__title-icon svg {
     width: 2.8vw;
@@ -1282,7 +1295,7 @@ body {
 
 @media screen and (min-width: 1080px) {
   .spinner__container {
-    top: 20%;
+    top: 13%;
     left: 45%;
   }
 }
@@ -1453,7 +1466,7 @@ body {
   .restcard__overlay-icon {
     width: 1.9vw;
     stroke-width: 1.5vw;
-    padding: 0.5vw 0.6vw 0 0;
+    margin: 0.5vw 0.6vw 0 0;
   }
   .restcard__overlay-icon svg {
     width: 1.9vw;
@@ -1531,7 +1544,7 @@ body {
     -ms-grid-row: 1;
     grid-row: 1;
     width: 2.1vw;
-    padding: 1.2vw 0 0 32.7vw;
+    margin: 1.1vw 0 0 32.7vw;
   }
   .menu__title-icon svg {
     width: 2.1vw;
